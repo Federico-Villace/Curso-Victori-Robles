@@ -3,13 +3,17 @@
 window.addEventListener('load', ()=>{
 
 var info = document.querySelector(".info"); 
-var usuarios = [];
+var loading = document.querySelector(".loading");
+var usuarios = [];//definimos el array 
+
 
     fetch("https://reqres.in/api/users") // fetch recibe un link 
-        .then(data => data.json())  // aguarda una promesa, en este caso se convierten los datos a json
-        .then(users => {    //aguarda la segunda promesa, 
-
-            usuarios = users.data;
+        .then(datajson => datajson.json())  // aguarda una promesa, en este caso se convierten los datos a json
+        .then(users => {    //aguarda la segunda promesa, pasamos por parametro lo que queramos usar 
+           
+            usuarios = users.data;      //le damos como valor lo que se encuentre dentro de la seccion que queramos de json users.data users.ad etc
+ 
+            console.log(users);
             console.log(usuarios);
             
             usuarios.map((user, i) => {
@@ -19,7 +23,8 @@ var usuarios = [];
                 info.appendChild(datos); 
             }); 
 
+        loading.style.display = "none";          
         });
-
+       
 
 });
