@@ -10,8 +10,7 @@ var UsuarioEspecifico = document.querySelector("#UsuarioEspecifico");
             .then(datajson => datajson.json())  
             .then(users => {   
             listadoUsuarios(users.data); 
-        
-            }); 
+            }) 
     get_UsuarioEspecifico()
             .then(data => data.json())
             .then(user => {
